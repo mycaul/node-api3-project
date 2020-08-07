@@ -23,8 +23,11 @@
     },
     "homepage": "https://github.com/LambdaSchool/node-api3-project#readme",
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.17.1",
+        "helmet": "^4.0.0",
         "knex": "^0.21.2",
+        "node": "^14.7.0",
         "sqlite3": "^5.0.0"
     },
     "devDependencies": {
