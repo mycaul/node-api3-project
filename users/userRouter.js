@@ -63,7 +63,7 @@ router.post('/', (req, res) => {
 });
 
 
-
+//creates post
 router.post('/:id/posts', validatePosts, (req, res) => {
   const id = req.params.id;
   const body = req.body;
@@ -78,7 +78,7 @@ router.post('/:id/posts', validatePosts, (req, res) => {
     res.status(500).json({ errorMessage: "There was an issue with saving post to the database."})
   })
 });
-
+// remove user
 router.delete('/:id', validateUserId, (req, res) => {
   const id = req.params.id;
 
@@ -93,7 +93,7 @@ router.delete('/:id', validateUserId, (req, res) => {
     res.status(500).json({ errorMessage: "The user could not be removed." });
   })
 });
-
+//update user info
 router.put('/:id', validateUser, validateUserId, (req, res) => {
   const id = req.params.id;
   const body = req.body;

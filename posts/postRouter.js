@@ -4,6 +4,8 @@ const router = express.Router();
 const posts = require('./postDb');
 const {validatePostId, validatePosts} = require('../middleware/middleware')
 
+
+//retrieve post
 router.get('/', (req, res) => {
   posts.get()
   .then(post => {
@@ -14,7 +16,7 @@ router.get('/', (req, res) => {
     res.status(404).json({errorMessage: `Oops, couldn't find what you were looking for.`})
   })
 });
-
+// checks for user w id and finds post
 router.get('/:id', validatePostId, (req, res) => {
   const id = req.params.id;
 
@@ -27,7 +29,7 @@ router.get('/:id', validatePostId, (req, res) => {
     }
   })
 });
-
+//delete post
 router.delete('/:id', validatePostId, (req, res) => {
   const id = req.params.id;
 
@@ -42,7 +44,7 @@ router.delete('/:id', validatePostId, (req, res) => {
     res.status(500).json({ errorMessage: "The post could not be removed." });
   })
 });
-
+//update post
 router.put('/:id', validatePostId, validatePosts, (req, res) => {
   const id = req.params.id;
   const body = req.body;
